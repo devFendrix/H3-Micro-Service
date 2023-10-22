@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  back:
+    build: ./back
+    container_name: back
+    ports:
+      - 3000:3000
+    networks:
+      - my-network
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - ${MONGODB_PORT}:${MONGODB_DOCKER_PORT}
+    networks:
+      - my-network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+    env_file:
+      - .env
+networks:
+  my-network:
