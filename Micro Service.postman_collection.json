@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "367f95cd-726f-42c3-b194-88c25816d6d2",
+		"name": "Micro Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13449848"
+	},
+	"item": [
+		{
+			"name": "Areas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/areas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"areas"
+					]
+				},
+				"description": "Récupère l'ensemble des zones"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Area",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Londres\",\r\n  \"price\": 123.45\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/areas/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"areas",
+						"create"
+					]
+				},
+				"description": "Ajoute une zone"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Area",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"price\": 10000.45,\r\n  \"name\": \"Paris\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/areas/update/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"areas",
+						"update",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "653525041d7b8f28f6ee54cf"
+						}
+					]
+				},
+				"description": "Modifie une zone"
+			},
+			"response": []
+		}
+	]
+}
