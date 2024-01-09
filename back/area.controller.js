@@ -1,10 +1,10 @@
 const AreaModel = require("./area.model")
 
+// Endpoint : Création d'une area
 const create = async (req, res) => {
     const { name, price } = req.body
     AreaModel.create({ name, price })
         .then((data) => {
-            console.log("Création de l'area")
             res.status(201).send(data)
         })
         .catch((error) => {
@@ -13,6 +13,7 @@ const create = async (req, res) => {
         });
 }
 
+// Endpoint : Récupération des area
 const areas = async (req, res) => {
     try {
         const areas = await AreaModel.find()
@@ -23,13 +24,14 @@ const areas = async (req, res) => {
     }
 }
 
+// Endpoint : Mise à jour d'une area
 const update = async (req, res) => {
     const { id } = req.params
     const { name, price } = req.body
 
     AreaModel.findByIdAndUpdate(id, { name, price })
-        .then(() => {
-            res.send("Area mis à jour")
+        .then((data) => {
+            res.status(201).send(data)
         })
         .catch((err) => {
             console.log(err)

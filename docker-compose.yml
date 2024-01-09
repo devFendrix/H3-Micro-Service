@@ -5,11 +5,12 @@ services:
     build: ./back
     container_name: back
     ports:
-      - 3000:3000
+      - 3001:3001
     networks:
       - my-network
     depends_on:
       - mongo
+
   mongo:
     image: mongo
     ports:
@@ -21,5 +22,14 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
     env_file:
       - .env
+
+  front:
+    build: ./front
+    container_name: front
+    ports:
+      - 8080:80
+    networks:
+      - my-network
+
 networks:
   my-network:
